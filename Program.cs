@@ -12,6 +12,7 @@ namespace liste_2026_3_9a
         {
             Console.WriteLine("Pozdrav za 3-9!");
             Console.WriteLine("Drugi red");
+            Console.WriteLine("Treci red");
         }
     }
 }
