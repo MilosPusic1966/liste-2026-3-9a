@@ -10,9 +10,19 @@ namespace liste_2026_3_9a
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Pozdrav za 3-9!");
-            Console.WriteLine("Drugi red");
-            Console.WriteLine("Treci red");
+            int a;
+            // niz
+            int[] x;
+            x=new int[5];
+            int[]b = new int[5];
+            Console.WriteLine(x[4]);
+            // matrica
+            string[,] y;
+            y = new string[3, 4]; 
+
+
+
+
         }
     }
 }
