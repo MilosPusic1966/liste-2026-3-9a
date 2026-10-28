@@ -13,6 +13,7 @@ namespace liste_2026_3_9a
         static void Main(string[] args)
         {
             int izbor = 1;
+            graf Prvi;
             while (izbor != 0)
             {
                 Console.WriteLine("1. Unos ");
@@ -24,7 +25,7 @@ namespace liste_2026_3_9a
                 switch (izbor)
                 {
                     case 1:
-                        Console.WriteLine("Unos");
+                        Prvi = new graf();
                         break;
                     case 2:
                         Console.WriteLine("Stampa");
