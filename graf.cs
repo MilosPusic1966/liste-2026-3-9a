@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Runtime.ExceptionServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -95,5 +96,51 @@ namespace liste_2026_3_9a
             }
             sr.Close();
         }
+        public int povezan() { 
+            int KP = 0;
+            Queue<int> Red = new Queue<int>();
+            int[] P = new int[Cvor.Length];
+            for (int i = 0; i < Cvor.Length; i++)
+            {
+                P[i] = 0;
+            }
+            for(int i=0; i < Cvor.Length; i++)
+            {
+                if (P[i] == 0) {
+                    KP++;
+                    Red.Enqueue(i);
+                    while (Red.Count > 0)
+                    {
+                        int sled = Red.Dequeue();
+                        foreach (grana g in grane[sled])
+                        {
+                            if (P[g.cvor] == 0)
+                            {
+                                Red.Enqueue(g.cvor);
+                            }
+                            P[g.cvor] = KP;
+                        }
+                    }
+                }
+            }
+            return KP;
+        }
+        public string BF() { 
+            string rez = "";
+            List<grana_t> grane_t = new List<grana_t>();
+            for (int i=0; i < Cvor.Length; i++)
+            {
+                foreach (grana g in grane[i])
+                {
+                    grana_t Nova = new grana_t();
+                    Nova.from = i;
+                    Nova.to = g.cvor;
+                    Nova.w = g.tezina;
+                    grane_t.Add(Nova);
+                }
+            }
+            return rez;
+        }
+
     }
 }

@@ -11,4 +11,9 @@ namespace liste_2026_3_9a
         public int cvor;
         public int tezina;
     }
+    internal class grana_t {
+        public int from;
+        public int to;
+        public int w;
+    }
 }
