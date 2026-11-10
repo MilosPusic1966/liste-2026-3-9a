@@ -24,6 +24,7 @@ namespace liste_2026_3_9a
                 Console.WriteLine("6. M->L ");
                 Console.WriteLine("7. Usmeren ");
                 Console.WriteLine("8. Povezan ");
+                Console.WriteLine("9. Belman Ford ");
                 Console.WriteLine("0. Kraj ");
                 izbor = Convert.ToInt32(Console.ReadLine());
                 switch (izbor)
@@ -54,7 +55,9 @@ namespace liste_2026_3_9a
                         Console.WriteLine(KP);
                         break;
                     case 9:
-                        string rez = Prvi.BF();
+                        Console.WriteLine("Unesite pocetni cvor");
+                        int Poc = Convert.ToInt32(Console.ReadLine());
+                        string rez = Prvi.BF(Poc);
                         Console.WriteLine(rez);
                         break;
                     default:
