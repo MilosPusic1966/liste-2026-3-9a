@@ -125,8 +125,14 @@ namespace liste_2026_3_9a
             }
             return KP;
         }
-        public string BF() { 
+        public string BF(int poc) { 
             string rez = "";
+            int[] T = new int[Cvor.Length];
+            for (int i = 0; i < Cvor.Length; i++)
+            {
+                T[i] = 99;
+            }
+            T[poc] = 0;
             List<grana_t> grane_t = new List<grana_t>();
             for (int i=0; i < Cvor.Length; i++)
             {
@@ -139,8 +145,34 @@ namespace liste_2026_3_9a
                     grane_t.Add(Nova);
                 }
             }
+            int iter = 0;
+            while (iter < Cvor.Length)
+            {
+                int bilo = 0;
+                for (int i =0;i<grane_t.Count;i++)
+                {
+                    if (T[grane_t[i].from] + grane_t[i].w < T[grane_t[i].to])
+                    {
+                        T[grane_t[i].to] = T[grane_t[i].from] + grane_t[i].w;
+                        bilo = 1;
+                    }
+                }
+                if (bilo == 0) break;
+                iter++;
+            }
+            if(iter == Cvor.Length)
+            {
+                rez = "Postoji negativan ciklus";
+            }
+            else
+            {
+                for (int i = 0; i < Cvor.Length; i++)
+                {
+                    rez += $"Cvor {i} {Cvor[i]} Tezina {T[i]}\n";
+                }
+            }
+            // ispis rezultata
             return rez;
         }
-
     }
 }
